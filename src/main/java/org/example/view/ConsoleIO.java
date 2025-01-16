@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class ConsoleIO {
     private Scanner scanner = new Scanner(System.in);
 
-    public void printMessage(String message){
+    public void displayMessage(String message){
         System.out.println(message);
     }
 

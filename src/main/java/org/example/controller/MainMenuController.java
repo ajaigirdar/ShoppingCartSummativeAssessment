@@ -6,11 +6,26 @@ public class MainMenuController {
     CartService cartService;
     ConsoleIO consoleIO;
 
-    void displayMenu(){
+    public MainMenuController(CartService cartService, ConsoleIO consoleIO) {
+        this.cartService = cartService;
+        this.consoleIO = consoleIO;
+    }
+
+    public void displayMenu(){
+
+
+        boolean keepRunning = true;
+
+        while (keepRunning) {
+            consoleIO.displayMessage("Shopping Cart App \uD83D\uDECD\uFE0F");
+        }
+    }
+
+    private void handleRemoveItem(){
 
     }
 
-    void handleSelection(int option){
+    private void handleAddItem() {
 
     }
 }
