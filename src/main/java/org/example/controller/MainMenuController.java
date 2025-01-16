@@ -4,7 +4,7 @@ import main.java.org.example.view.ConsoleIO;
 
 public class MainMenuController {
     CartService cartService;
-    ConsoleIO io;
+    ConsoleIO consoleIO;
 
     void displayMenu(){
 
