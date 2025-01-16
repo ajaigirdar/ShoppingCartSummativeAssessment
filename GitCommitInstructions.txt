@@ -1,0 +1,38 @@
+1. FIRST COMMIT
+    Set up Repo
+
+2. SECOND COMMIT
+    Have MenuController completely functional case selection
+        - loop that menu selection
+        - method to print out main menu
+        - method stubs for each case
+            displayCart()
+                print("display cart")
+            removeItem()
+                print("remove item")
+            addItem()
+                print("add item")
+            checkout()
+                print("checkout")
+    ConsoleIO completely functional
+        - all methods for getting user input ready
+
+3. THIRD COMMIT
+
+    - Decide how you will handle inventory and current cart
+    removeItem()
+        how do display the items to be removed?
+        do prompt how many?
+    addItem()
+        how do you display the items to add? or are the name/price manually entered in by the user
+    checkout()
+        confirm checkout prompt
+
+4. FOURTH COMMIT
+    - implement adding an item
+    - display cart
+5. FIFTH COMMIT
+    - remove item
+
+6. SIXTH COMMIT
+    - checkout implementation

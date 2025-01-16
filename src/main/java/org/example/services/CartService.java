@@ -4,4 +4,30 @@ import main.java.org.example.model.Item;
 
 public class CartService {
 
+    private Cart cart;
+
+    public CartService(Cart cart){
+        this.cart = cart;
+    }
+
+    public void addItem(Item item, int quantity){
+        cart.addItem(item, quantity);
+    }
+
+    public void removeItem(Item item, int quantity) {
+        cart.removeItem(item, quantity);
+    }
+
+    public void displayCart() {
+        cart.displayCart();
+    }
+
+    public double calculateTotal() {
+        return cart.calculateTotal();
+    }
+
+    public void checkout() {
+        cart.clearCart();
+    }
+
 }

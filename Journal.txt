@@ -1,0 +1,4 @@
+1. added stab methods to all the classes
+2. had a tough time differentiate between Cart and CartService
+3. figuring out the methods to use in these 2 classes
+4.
