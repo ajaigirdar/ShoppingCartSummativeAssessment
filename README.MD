@@ -1,4 +1,4 @@
-# Shopping Cart Prototype
+# Shopping Cart Prototype <br>
 A prototype for a Point of Sale (POS) system designed for Shopping Inc. <br>
 This application allows cashiers to ring up 
 customers' purchases, manage their shopping cart, and calculate the total price at checkout. <br>
