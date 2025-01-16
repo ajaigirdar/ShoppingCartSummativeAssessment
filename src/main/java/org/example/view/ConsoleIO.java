@@ -1,5 +1,6 @@
 package main.java.org.example.view;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ConsoleIO {
@@ -10,13 +11,27 @@ public class ConsoleIO {
     }
 
     public int getInt(String prompt){
-        System.out.println(prompt);
-        return scanner.nextInt();
+        while (true){
+            try {
+                System.out.println(prompt);
+                return scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+                scanner.next();
+            }
+        }
     }
 
     public double getDoubleInput(String prompt){
-        System.out.println(prompt);
-        return scanner.nextDouble();
+        while (true){
+            try{
+                System.out.println(prompt);
+                return scanner.nextDouble();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+                scanner.next();
+            }
+        }
     }
 
     public String getStringInput(String prompt){
