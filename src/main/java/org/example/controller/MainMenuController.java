@@ -37,19 +37,49 @@ public class MainMenuController {
     }
 
     private void handleRemoveItem(){
-        cartService.displayCart();
-        String itemName = consoleIO.getStringInput("Enter item name you want to remove: ").toUpperCase();
-        int quantity = consoleIO.getInt("Enter the quantity to remove: ");
-        cartService.removeItem(itemName, quantity);
-        consoleIO.displayMessage(itemName + " removed from your cart successfully.");
+        boolean removeMoreItems = true;
+        while (removeMoreItems) {
+            cartService.displayCart();
+            String itemName = consoleIO.getStringInput("Enter item name you want to remove: ").toUpperCase();
+            int quantity = consoleIO.getInt("Enter the quantity to remove: ");
+            cartService.removeItem(itemName, quantity);
+            consoleIO.displayMessage(itemName + " removed from your cart successfully.");
+            String choice;
+            while (true) {
+                choice = consoleIO.getStringInput("Do you want ro remove more items? (Y/N): ");
+                if (choice.equalsIgnoreCase("y")){
+                    break;
+                } else if(choice.equalsIgnoreCase("n")) {
+                    removeMoreItems = false;
+                    break;
+                } else {
+                    consoleIO.displayMessage("Invalid Entry.");
+                }
+            }
+        }
     }
 
     private void handleAddItem() {
-        String itemName = consoleIO.getStringInput("Enter item name you want to add: ").toUpperCase();
-        double price = consoleIO.getDoubleInput("Enter price of the item: ");
-        int quantity = consoleIO.getInt("Enter quantity: ");
-        cartService.addItem(itemName, price, quantity);
-        consoleIO.displayMessage(itemName.toUpperCase() + " added to your cart successfully.");
+        boolean addMoreItems = true;
+        while (addMoreItems) {
+            String itemName = consoleIO.getStringInput("Enter item name you want to add: ").toUpperCase();
+            double price = consoleIO.getDoubleInput("Enter price of the item: ");
+            int quantity = consoleIO.getInt("Enter quantity: ");
+            cartService.addItem(itemName, price, quantity);
+            consoleIO.displayMessage(itemName.toUpperCase() + " added to your cart successfully.");
+            String choice;
+            while (true){
+                choice = consoleIO.getStringInput("Do you want to add more item? (Y/N): ");
+                if (choice.equalsIgnoreCase("y")){
+                    break;
+                } else if(choice.equalsIgnoreCase("n")){
+                    addMoreItems = false;
+                    break;
+                } else {
+                    consoleIO.displayMessage("Invalid Entry.");
+                }
+            }
+        }
     }
 
     private void displayMainMenu() {

@@ -12,3 +12,5 @@
 10. Thinking how can I add an interface here
 11. Added CartServiceInterface
 12. Added colored text to displayCart
+13. Added a while loop to the addItem() and removeItem() methods. Now, users will be asked if they want to add or remove more items without going back to the main menu.
+
