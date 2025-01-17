@@ -17,6 +17,7 @@
 - ` ConsoleIO:` Provides utility methods for input and output.
 
 ### Example Usage
+```
 -------------------------------
 Welcome To Shopping Cart App 🛍️
 -------------------------------
@@ -26,50 +27,52 @@ Main Menu:
 3. Add an Item
 4. Checkout
 5. Exit
-   Choose an option:
-   <span style="color:green">3</span>
-   Enter item name you want to add:
-   <span style="color:green">apple</span>
-   Enter price of the item:
-   <span style="color:green">.22</span>
-   Enter quantity:
-   <span style="color:green">100</span>
-   APPLE added to your cart successfully.
+Choose an option:
+3
+Enter item name you want to add: 
+apple
+Enter price of the item: 
+.22
+Enter quantity: 
+100
+APPLE added to your cart successfully.
 -------------------------------
 Welcome To Shopping Cart App 🛍️
 -------------------------------
+This text is italic
 Main Menu:
 1. Display Cart
 2. Remove an Item
 3. Add an Item
 4. Checkout
 5. Exit
-   Choose an option:
-   <span style="color:green">3</span>
-   Enter item name you want to add:
-   <span style="color:green">orange</span>
-   Enter price of the item:
-   <span style="color:green">29</span>
-   Enter quantity:
-   <span style="color:green">200</span>
-   ORANGE added to your cart successfully.
+Choose an option: 
+3
+Enter item name you want to add: 
+orange
+Enter price of the item: 
+29
+Enter quantity: 
+200
+ORANGE added to your cart successfully.
 -------------------------------
 Welcome To Shopping Cart App 🛍️
 -------------------------------
+This text is italic
 Main Menu:
 1. Display Cart
 2. Remove an Item
 3. Add an Item
 4. Checkout
 5. Exit
-   Choose an option:
-   <span style="color:green">1</span>
-   Your Cart:
-   <span style="color:blue">APPLE</span>(100) @ <span style="color:green">$0.22</span>
+Choose an option: 
+1
+Your Cart:
+APPLE(100) @ $0.22
 -------------------------------
-<span style="color:blue">ORANGE</span>(200) @ <span style="color:green">$29.0</span>
+ORANGE(200) @ $29.0
 -------------------------------
-
+```
 ### Clone the repository:
    ```sh
    git clone https://github.com/ajaigirdar/ShoppingCartSummativeAssessment.git 
