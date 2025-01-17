@@ -1,11 +1,9 @@
 package test.java.org.example.services;
 import main.java.org.example.model.Cart;
 import main.java.org.example.model.Item;
-import org.junit.jupiter.api.BeforeAll;
+import main.java.org.example.services.CartService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,16 +11,18 @@ import static org.junit.jupiter.api.Assertions.*;
 class CartServiceTest {
 
     Cart testCart;
+    CartService cartService;
 
     @BeforeEach
     void setUp() {
         testCart = new Cart();
+        cartService = new CartService(testCart);
     }
 
     @Test
     void CartService_addItem_itemAddedSuccessfully_itemExistsInTheCart() {
         // arrange
-        testCart.addItem("apple", 20, 100);
+        cartService.addItem("apple", 20, 100);
 
         // act
         Map<String, Item> testMap = testCart.getItems();
@@ -36,26 +36,52 @@ class CartServiceTest {
     @Test
     void CartService_removeItem_itemRemovedSuccessfully() {
         // arrange
-        testCart.addItem("apple",20,100);
+        cartService.addItem("apple",20,100);
 
         // act
-        Map<String, Item> testMap = testCart.getItems();
-        testMap.remove("apple");
+        cartService.removeItem("apple", 100);
 
         //assert
-        assertFalse(testMap.containsKey("apple"));
-        assertEquals(null, testMap.get("apple"));
+        assertFalse(testCart.getItems().containsKey("apple"));
+        assertNull(testCart.getItems().get("apple"));
     }
 
     @Test
     void CartService_displayCart_displayAllTheItemsInTheCart() {
+        // arrange
+        testCart.addItem("Orange", .25,100);
+
+        // act
+        Map<String, Item> testMap = testCart.getItems();
+
+        // assert
+        assertEquals(testMap.toString(), testCart.items.toString());
     }
 
     @Test
     void calculateTotal() {
+        // arrange
+
+
+        // act
+
+
+        // assert
+
     }
 
     @Test
     void checkout() {
+        // arrange
+        cartService.addItem("apple", .25,200);
+        cartService.addItem("banana", .50, 100);
+
+
+        // act
+        cartService.checkout();
+
+        // assert
+        assertTrue(testCart.getItems().isEmpty());
+
     }
 }

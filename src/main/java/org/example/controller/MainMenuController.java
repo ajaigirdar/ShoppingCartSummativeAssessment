@@ -43,7 +43,7 @@ public class MainMenuController {
             String itemName = consoleIO.getStringInput("Enter item name you want to remove: ").toUpperCase();
             int quantity = consoleIO.getInt("Enter the quantity to remove: ");
             cartService.removeItem(itemName, quantity);
-            consoleIO.displayMessage(itemName + " removed from your cart successfully.");
+            consoleIO.displayMessage("\033[31m" +quantity + " " + itemName + " removed from your cart successfully" + ".\033[0m");
             String choice;
             while (true) {
                 choice = consoleIO.getStringInput("Do you want ro remove more items? (Y/N): ");
@@ -86,7 +86,6 @@ public class MainMenuController {
         consoleIO.displayMessage("-------------------------------");
         consoleIO.displayMessage("Welcome To Shopping Cart App \uD83D\uDECD️");
         consoleIO.displayMessage("-------------------------------");
-        consoleIO.displayMessage("\033[3mThis text is italic\033[0m");
         consoleIO.displayMessage("Main Menu:");
         consoleIO.displayMessage("1. Display Cart");
         consoleIO.displayMessage("2. Remove an Item");
