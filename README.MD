@@ -21,24 +21,6 @@
 -------------------------------
 Welcome To Shopping Cart App 🛍️
 -------------------------------
-Main Menu:
-1. Display Cart
-2. Remove an Item
-3. Add an Item
-4. Checkout
-5. Exit
-Choose an option:
-3
-Enter item name you want to add: 
-apple
-Enter price of the item: 
-.22
-Enter quantity: 
-100
-APPLE added to your cart successfully.
--------------------------------
-Welcome To Shopping Cart App 🛍️
--------------------------------
 This text is italic
 Main Menu:
 1. Display Cart
@@ -49,12 +31,23 @@ Main Menu:
 Choose an option: 
 3
 Enter item name you want to add: 
-orange
+apple
 Enter price of the item: 
-29
+.25
 Enter quantity: 
 200
+APPLE added to your cart successfully.
+Do you want to add more item? (Y/N): 
+y
+Enter item name you want to add: 
+Orange
+Enter price of the item: 
+.33
+Enter quantity: 
+100
 ORANGE added to your cart successfully.
+Do you want to add more item? (Y/N): 
+n
 -------------------------------
 Welcome To Shopping Cart App 🛍️
 -------------------------------
@@ -68,9 +61,9 @@ Main Menu:
 Choose an option: 
 1
 Your Cart:
-APPLE(100) @ $0.22
+APPLE(200) @ $0.25
 -------------------------------
-ORANGE(200) @ $29.0
+ORANGE(100) @ $0.33
 -------------------------------
 ```
 ### Clone the repository:
