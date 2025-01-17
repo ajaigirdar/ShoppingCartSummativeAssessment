@@ -10,8 +10,8 @@ public class CartService {
         this.cart = cart;
     }
 
-    public void addItem(Item item, int quantity){
-        cart.addItem(item, quantity);
+    public void addItem(String itemName, double price, int quantity){
+        cart.addItem(itemName, price, quantity);
     }
 
     public void removeItem(Item item, int quantity) {

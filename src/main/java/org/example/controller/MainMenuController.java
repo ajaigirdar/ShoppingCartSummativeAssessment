@@ -17,7 +17,9 @@ public class MainMenuController {
         boolean keepRunning = true;
 
         while (keepRunning) {
+            consoleIO.displayMessage("-------------------------------");
             consoleIO.displayMessage("Welcome To Shopping Cart App \uD83D\uDECD\uFE0F");
+            consoleIO.displayMessage("-------------------------------");
             consoleIO.displayMessage("Main Menu:");
             consoleIO.displayMessage("1. Display Cart");
             consoleIO.displayMessage("2. Remove an Item");
@@ -29,12 +31,18 @@ public class MainMenuController {
 
             switch (choice) {
                 case 1:
+                    cartService.displayCart();
                     break;
                 case 2:
+                    handleRemoveItem();
                     break;
                 case 3:
+                    handleAddItem();
                     break;
                 case 4:
+                    cartService.checkout();
+                    consoleIO.displayMessage("Exiting the app. Goodbye! ");
+                    keepRunning = false;
                     break;
                 case 5:
                     consoleIO.displayMessage("Exiting the app. Goodbye! ");
