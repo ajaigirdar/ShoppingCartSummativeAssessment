@@ -1,7 +1,11 @@
-1. added stab methods to all the classes.
-2. had a tough time differentiate between Cart and CartService.
-3. figuring out the methods to use in these 2 classes.
-4. added error handling in ConsoleIO.
-5. experimented with README file format and it's contents.
-6. generated tests for CartService class
-7.
+1. Added stab methods to all the classes.
+2. Had a tough time differentiate between Cart and CartService.
+3. Figuring out the methods to use in these 2 classes.
+4. Added error handling in ConsoleIO.
+5. Experimented with README file format and it's contents.
+6. Generated tests for CartService class
+7. Added methods to handle add and remove items.
+8. The item name will be converted to uppercase when added to the cart to achieve uniformity.
+9. Changed how to show item quantity
+        old: APPLE - 100 @ $0.44
+        new: APPLE(100) @ $0.44

@@ -37,11 +37,19 @@ public class MainMenuController {
     }
 
     private void handleRemoveItem(){
-
+        cartService.displayCart();
+        String itemName = consoleIO.getStringInput("Enter item name you want to remove: ").toUpperCase();
+        int quantity = consoleIO.getInt("Enter the quantity to remove: ");
+        cartService.removeItem(itemName, quantity);
+        consoleIO.displayMessage(itemName + " removed from your cart successfully.");
     }
 
     private void handleAddItem() {
-
+        String itemName = consoleIO.getStringInput("Enter item name you want to add: ").toUpperCase();
+        double price = consoleIO.getDoubleInput("Enter price of the item: ");
+        int quantity = consoleIO.getInt("Enter quantity: ");
+        cartService.addItem(itemName, price, quantity);
+        consoleIO.displayMessage(itemName.toUpperCase() + " added to your cart successfully.");
     }
 
     private void displayMainMenu() {
