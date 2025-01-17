@@ -1,7 +1,5 @@
 package main.java.org.example.model;
 
-import java.util.List;
-
 public class Item {
     private String name;
     private double price;

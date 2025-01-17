@@ -12,44 +12,26 @@ public class MainMenuController {
     }
 
     public void displayMenu(){
-
-
         boolean keepRunning = true;
 
         while (keepRunning) {
-            consoleIO.displayMessage("-------------------------------");
-            consoleIO.displayMessage("Welcome To Shopping Cart App \uD83D\uDECD\uFE0F");
-            consoleIO.displayMessage("-------------------------------");
-            consoleIO.displayMessage("Main Menu:");
-            consoleIO.displayMessage("1. Display Cart");
-            consoleIO.displayMessage("2. Remove an Item");
-            consoleIO.displayMessage("3. Add an Item");
-            consoleIO.displayMessage("4. Checkout");
-            consoleIO.displayMessage("5. Exit");
-
+            displayMainMenu();
             int choice = consoleIO.getInt("Choose an option: ");
-
+            
             switch (choice) {
-                case 1:
-                    cartService.displayCart();
-                    break;
-                case 2:
-                    handleRemoveItem();
-                    break;
-                case 3:
-                    handleAddItem();
-                    break;
-                case 4:
+                case 1 -> cartService.displayCart();
+                case 2 -> handleRemoveItem();
+                case 3 -> handleAddItem();
+                case 4 -> {
                     cartService.checkout();
                     consoleIO.displayMessage("Exiting the app. Goodbye! ");
                     keepRunning = false;
-                    break;
-                case 5:
+                }
+                case 5 -> {
                     consoleIO.displayMessage("Exiting the app. Goodbye! ");
                     keepRunning = false;
-                    break;
-                default:
-                    consoleIO.displayMessage("Invalid input. Please try again");
+                }
+                default -> consoleIO.displayMessage("Invalid input. Please try again");
             }
         }
     }
@@ -60,5 +42,17 @@ public class MainMenuController {
 
     private void handleAddItem() {
 
+    }
+
+    private void displayMainMenu() {
+        consoleIO.displayMessage("-------------------------------");
+        consoleIO.displayMessage("Welcome To Shopping Cart App \uD83D\uDECD️");
+        consoleIO.displayMessage("-------------------------------");
+        consoleIO.displayMessage("Main Menu:");
+        consoleIO.displayMessage("1. Display Cart");
+        consoleIO.displayMessage("2. Remove an Item");
+        consoleIO.displayMessage("3. Add an Item");
+        consoleIO.displayMessage("4. Checkout");
+        consoleIO.displayMessage("5. Exit");
     }
 }

@@ -14,8 +14,8 @@ public class CartService {
         cart.addItem(itemName, price, quantity);
     }
 
-    public void removeItem(Item item, int quantity) {
-        cart.removeItem(item, quantity);
+    public void removeItem(String itemName, int quantity) {
+        cart.removeItem(itemName, quantity);
     }
 
     public void displayCart() {
@@ -27,7 +27,14 @@ public class CartService {
     }
 
     public void checkout() {
-        cart.clearCart();
+        if (cart.getItems().isEmpty()) {
+            System.out.println("Your cart is empty.");
+        } else {
+            double total = calculateTotal();
+            System.out.println("Total amount due: $" + total);
+            cart.clearCart();
+            System.out.println("Cart cleared. Goodbye!");
+        }
     }
 
 }

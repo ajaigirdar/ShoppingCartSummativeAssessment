@@ -1,5 +1,4 @@
 package main.java.org.example;
-
 import main.java.org.example.controller.MainMenuController;
 import main.java.org.example.model.Cart;
 import main.java.org.example.services.CartService;

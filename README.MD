@@ -28,7 +28,7 @@ Main Menu:
 3. Add an Item
 4. Checkout
 5. Exit
-   Choose an option:
+Choose an option:
 ```
 ### Clone the repository:
    ```sh

@@ -1,7 +1,6 @@
 package main.java.org.example.model;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.StringJoiner;
 
 public class Cart {
 
@@ -21,7 +20,7 @@ public class Cart {
         }
     }
 
-    public void removeItem(Item itemName, int quantity){
+    public void removeItem(String itemName, int quantity){
         Item item = items.get(itemName);
         if (item != null) {
             int remainingQuantity = item.getQuantity() - quantity;
@@ -50,12 +49,14 @@ public class Cart {
     }
 
     public double calculateTotal() {
-        return 0;
+        double total = 0;
+        for (Item item : items.values()) {
+            total += item.getPrice() * item.getQuantity();
+        }
+        return total;
     }
 
     public void clearCart(){
         items.clear();
     }
-
-
 }
