@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class CartServiceTest {
 
@@ -21,7 +20,7 @@ class CartServiceTest {
     }
 
     @Test
-    void addItem() {
+    void CartService_addItem_itemAddedSuccessfully_itemExistsInTheCart() {
         // arrange
         testCart.addItem("apple", 20, 100);
 
@@ -35,11 +34,21 @@ class CartServiceTest {
     }
 
     @Test
-    void removeItem() {
+    void CartService_removeItem_itemRemovedSuccessfully() {
+        // arrange
+        testCart.addItem("apple",20,100);
+
+        // act
+        Map<String, Item> testMap = testCart.getItems();
+        testMap.remove("apple");
+
+        //assert
+        assertFalse(testMap.containsKey("apple"));
+        assertEquals(null, testMap.get("apple"));
     }
 
     @Test
-    void displayCart() {
+    void CartService_displayCart_displayAllTheItemsInTheCart() {
     }
 
     @Test
