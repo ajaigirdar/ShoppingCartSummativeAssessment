@@ -56,6 +56,7 @@ public class MainMenuController {
         consoleIO.displayMessage("-------------------------------");
         consoleIO.displayMessage("Welcome To Shopping Cart App \uD83D\uDECD️");
         consoleIO.displayMessage("-------------------------------");
+        consoleIO.displayMessage("\033[3mThis text is italic\033[0m");
         consoleIO.displayMessage("Main Menu:");
         consoleIO.displayMessage("1. Display Cart");
         consoleIO.displayMessage("2. Remove an Item");

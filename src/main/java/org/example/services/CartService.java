@@ -1,7 +1,7 @@
 package main.java.org.example.services;
 import main.java.org.example.model.Cart;
 
-public class CartService {
+public class CartService implements CartServiceInterface{
 
     private Cart cart;
 

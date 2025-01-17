@@ -41,10 +41,10 @@ public class Cart {
             System.out.println("Your Cart is Empty. Please Add Items.");
         } else {
             System.out.println("Your Cart:");
-            System.out.println("-------------------------------");
             for (Map.Entry<String, Item> entry : items.entrySet()) {
                 Item item = entry.getValue();
-                System.out.println(item.getName() + "(" + item.getQuantity() + ") @ $" + item.getPrice());
+                System.out.println("\033[34m" + item.getName() + "\033[0m\033[1m(" + item.getQuantity() + ")\033[0m @ \033[32m$" + item.getPrice() + "\033[0m");
+                System.out.println("-------------------------------");
             }
         }
     }

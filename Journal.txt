@@ -9,3 +9,6 @@
 9. Changed how to show item quantity
         old: APPLE - 100 @ $0.44
         new: APPLE(100) @ $0.44
+10. Thinking how can I add an interface here
+11. Added CartServiceInterface
+12. Added colored text to displayCart
