@@ -3,3 +3,5 @@
 3. figuring out the methods to use in these 2 classes.
 4. added error handling in ConsoleIO.
 5. experimented with README file format and it's contents.
+6. generated tests for CartService class
+7.

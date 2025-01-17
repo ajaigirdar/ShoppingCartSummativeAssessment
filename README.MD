@@ -10,12 +10,12 @@
 - **Interactive Console Menu**: Easy-to-use menu-driven interface for the cashier.
 
 ## Project Structure
-- `App:` The main entry point of the application.
+- ` App:` The main entry point of the application.
 - ` MainMenuController:` Handles menu navigation and user interactions.
-- `Car:` Manages the shopping cart's contents.
-- `Item:` Represents individual products.
-- `CartService:` Contains the business logic for cart operations.
-- `ConsoleIO:` Provides utility methods for input and output.
+- ` Cart:` Manages the shopping cart's contents.
+- ` Item:` Represents individual products.
+- ` CartService:` Contains the business logic for cart operations.
+- ` ConsoleIO:` Provides utility methods for input and output.
 
 ### Example Usage
 ```
