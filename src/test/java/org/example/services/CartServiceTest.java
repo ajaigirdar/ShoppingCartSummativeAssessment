@@ -10,78 +10,100 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CartServiceTest {
 
-    Cart testCart;
-    CartService cartService;
+    private Cart cart;
+    private CartService cartService;
 
     @BeforeEach
     void setUp() {
         testCart = new Cart();
-        cartService = new CartService(testCart);
+        cartService = new CartService(cart);
     }
 
     @Test
-    void CartService_addItem_itemAddedSuccessfully_itemExistsInTheCart() {
-        // arrange
-        cartService.addItem("apple", 20, 100);
+    void addItem_shouldAddNewItemToCart() {
+        // Act
+        cartService.addItem("apple", 1.0, 5);
 
-        // act
-        Map<String, Item> testMap = testCart.getItems();
-
-        //assert
-        assertTrue(testMap.containsKey("apple"));
-        assertEquals(20, testMap.get("apple").getPrice(), "Price should be 20");
-        assertEquals(100, testMap.get("apple").getQuantity(), "Quantity should be 100");
+        // Assert
+        Map<String, Item> items = cart.getItems();
+        assertTrue(items.containsKey("apple"), "Cart should contain 'apple'.");
+        assertEquals(5, items.get("apple").getQuantity(), "Apple quantity should be 5.");
+        assertEquals(1.0, items.get("apple").getPrice(), 0.001, "Apple price should be 1.0.");
     }
 
     @Test
-    void CartService_removeItem_itemRemovedSuccessfully() {
-        // arrange
-        cartService.addItem("apple",20,100);
+    void addItem_shouldUpdateQuantityIfItemAlreadyExists() {
+        // Arrange
+        cartService.addItem("apple", 1.0, 5);
 
-        // act
-        cartService.removeItem("apple", 100);
+        // Act
+        cartService.addItem("apple", 1.0, 3);
 
-        //assert
-        assertFalse(testCart.getItems().containsKey("apple"));
-        assertNull(testCart.getItems().get("apple"));
+        // Assert
+        assertEquals(8, cart.getItems().get("apple").getQuantity(), "Apple quantity should be updated to 8.");
+    }
+
+
+    @Test
+    void removeItem_shouldRemoveSpecifiedQuantity() {
+        // Arrange
+        cartService.addItem("apple", 1.0, 5);
+
+        // Act
+        cartService.removeItem("apple", 3);
+
+        // Assert
+        assertEquals(2, cart.getItems().get("apple").getQuantity(), "Apple quantity should be reduced to 2.");
     }
 
     @Test
-    void CartService_displayCart_displayAllTheItemsInTheCart() {
-        // arrange
-        testCart.addItem("Orange", .25,100);
+    void removeItem_shouldRemoveItemWhenQuantityIsZero() {
+        // Arrange
+        cartService.addItem("apple", 1.0, 5);
 
-        // act
-        Map<String, Item> testMap = testCart.getItems();
+        // Act
+        cartService.removeItem("apple", 5);
 
-        // assert
-        assertEquals(testMap.toString(), testCart.items.toString());
+        // Assert
+        assertFalse(cart.getItems().containsKey("apple"), "Apple should be removed from the cart.");
+    }
+
+
+    @Test
+    void removeItem_shouldDoNothingForNonExistentItem() {
+        // Act
+        cartService.removeItem("nonexistent", 1);
+
+        // Assert
+        assertTrue(cart.getItems().isEmpty(), "Cart should remain empty.");
     }
 
     @Test
-    void calculateTotal() {
-        // arrange
+    void displayCart_shouldDisplayEmptyCartMessage() {
+        assertTrue(cart.getItems().isEmpty(), "Cart should be empty before displaying.");
+    }
 
+    void calculateTotal_shouldReturnTotalCostOfItems() {
+        // Arrange
+        cartService.addItem("apple", 1.0, 5);
+        cartService.addItem("banana", 0.5, 10);
 
-        // act
+        // Act
+        double total = cartService.calculateTotal();
 
-
-        // assert
-
+        // Assert
+        assertEquals(10.0, total, 0.001, "Total cost should be 10.0.");
     }
 
     @Test
-    void checkout() {
-        // arrange
-        cartService.addItem("apple", .25,200);
-        cartService.addItem("banana", .50, 100);
+    void checkout_shouldClearCart() {
+        // Arrange
+        cartService.addItem("apple", 1.0, 5);
 
-
-        // act
+        // Act
         cartService.checkout();
 
-        // assert
-        assertTrue(testCart.getItems().isEmpty());
-
+        // Assert
+        assertTrue(cart.getItems().isEmpty(), "Cart should be cleared after checkout.");
     }
 }
