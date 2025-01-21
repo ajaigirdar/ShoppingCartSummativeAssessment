@@ -3,38 +3,45 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ConsoleIO {
-    private Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
     public void displayMessage(String message){
         System.out.println(message);
     }
 
-    public int getInt(String prompt){
+    public String getStringInput(String prompt){
         while (true){
             try {
                 System.out.println(prompt);
-                return scanner.nextInt();
+                return scanner.next();
             } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Please enter a valid number.");
+                System.out.println("Invalid input. Try again: ");
                 scanner.next();
             }
         }
     }
 
-    public double getDoubleInput(String prompt){
+    public int getInt(String prompt) {
+        while (true) {
+            try {
+                System.out.println(prompt);
+                return scanner.nextInt();
+            } catch (InputMismatchException e){
+                System.out.println("Invalid input. Please enter a valid number: ");
+                scanner.next();
+            }
+        }
+    }
+
+    public double getDouble(String prompt){
         while (true){
-            try{
+            try {
                 System.out.println(prompt);
                 return scanner.nextDouble();
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Please enter a valid number.");
+            }catch (IllegalAccessError e) {
+                System.out.println("Invalid input. Please enter a valid number: ");
                 scanner.next();
             }
         }
-    }
-
-    public String getStringInput(String prompt){
-        System.out.println(prompt);
-        return scanner.next();
     }
 }

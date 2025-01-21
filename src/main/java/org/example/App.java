@@ -6,12 +6,12 @@ import main.java.org.example.view.ConsoleIO;
 
 public class App {
     public static void main(String[] args) {
+
         ConsoleIO consoleIO = new ConsoleIO();
         Cart cart = new Cart();
         CartService cartService = new CartService(cart);
-        MainMenuController menuController = new MainMenuController(cartService, consoleIO);
+        MainMenuController mainMenuController = new MainMenuController(cartService, consoleIO);
 
-        menuController.displayMenu();
-
+        mainMenuController.displayMenu();
     }
 }

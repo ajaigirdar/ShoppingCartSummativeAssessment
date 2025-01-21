@@ -11,78 +11,32 @@ public class MainMenuController {
         this.consoleIO = consoleIO;
     }
 
-    public void displayMenu(){
+    public void displayMenu() {
         boolean keepRunning = true;
 
         while (keepRunning) {
             displayMainMenu();
             int choice = consoleIO.getInt("Choose an option: ");
-            
+
             switch (choice) {
                 case 1 -> cartService.displayCart();
                 case 2 -> handleRemoveItem();
                 case 3 -> handleAddItem();
                 case 4 -> {
                     cartService.checkout();
-                    consoleIO.displayMessage("Exiting the app. Goodbye! ");
+                    consoleIO.displayMessage("Exiting app. Goodbye!");
                     keepRunning = false;
                 }
                 case 5 -> {
-                    consoleIO.displayMessage("Exiting the app. Goodbye! ");
+                    consoleIO.displayMessage("Exiting app. Goodbye!");
                     keepRunning = false;
                 }
-                default -> consoleIO.displayMessage("Invalid input. Please try again");
+                default -> consoleIO.displayMessage("Invalid input. Please try again. ");
             }
         }
     }
 
-    private void handleRemoveItem(){
-        boolean removeMoreItems = true;
-        while (removeMoreItems) {
-            cartService.displayCart();
-            String itemName = consoleIO.getStringInput("Enter item name you want to remove: ").toUpperCase();
-            int quantity = consoleIO.getInt("Enter the quantity to remove: ");
-            cartService.removeItem(itemName, quantity);
-            consoleIO.displayMessage("\033[31m" +quantity + " " + itemName + " removed from your cart successfully" + ".\033[0m");
-            String choice;
-            while (true) {
-                choice = consoleIO.getStringInput("Do you want ro remove more items? (Y/N): ");
-                if (choice.equalsIgnoreCase("y")){
-                    break;
-                } else if(choice.equalsIgnoreCase("n")) {
-                    removeMoreItems = false;
-                    break;
-                } else {
-                    consoleIO.displayMessage("Invalid Entry.");
-                }
-            }
-        }
-    }
-
-    private void handleAddItem() {
-        boolean addMoreItems = true;
-        while (addMoreItems) {
-            String itemName = consoleIO.getStringInput("Enter item name you want to add: ").toUpperCase();
-            double price = consoleIO.getDoubleInput("Enter price of the item: ");
-            int quantity = consoleIO.getInt("Enter quantity: ");
-            cartService.addItem(itemName, price, quantity);
-            consoleIO.displayMessage(itemName.toUpperCase() + " added to your cart successfully.");
-            String choice;
-            while (true){
-                choice = consoleIO.getStringInput("Do you want to add more item? (Y/N): ");
-                if (choice.equalsIgnoreCase("y")){
-                    break;
-                } else if(choice.equalsIgnoreCase("n")){
-                    addMoreItems = false;
-                    break;
-                } else {
-                    consoleIO.displayMessage("Invalid Entry.");
-                }
-            }
-        }
-    }
-
-    private void displayMainMenu() {
+    public void displayMainMenu() {
         consoleIO.displayMessage("-------------------------------");
         consoleIO.displayMessage("Welcome To Shopping Cart App \uD83D\uDECD️");
         consoleIO.displayMessage("-------------------------------");
@@ -92,5 +46,50 @@ public class MainMenuController {
         consoleIO.displayMessage("3. Add an Item");
         consoleIO.displayMessage("4. Checkout");
         consoleIO.displayMessage("5. Exit");
+    }
+
+    public void handleAddItem() {
+        boolean addMoreItems = true;
+        while (addMoreItems) {
+            String name = consoleIO.getStringInput("Enter Item Name: ");
+            double price = consoleIO.getDouble("Enter Item Price: ");
+            int quantity = consoleIO.getInt("Enter Item Quantity: ");
+            cartService.addItem(name.toUpperCase(), price, quantity);
+            String choice;
+            while (true) {
+                choice = consoleIO.getStringInput("Do you want to add more items? (y/n): ");
+                if (choice.equalsIgnoreCase("y")) {
+                    break;
+                } else if (choice.equalsIgnoreCase("n")) {
+                    addMoreItems = false;
+                    break;
+                } else {
+                    consoleIO.displayMessage("Invalid entry");
+                }
+            }
+        }
+    }
+
+    public void handleRemoveItem() {
+        boolean removeMoreItems = true;
+        cartService.displayCart();
+        while (removeMoreItems) {
+            String name = consoleIO.getStringInput("Enter Item Name: ");
+            int quantity = consoleIO.getInt("Enter Item Quantity: ");
+            cartService.removeItem(name.toUpperCase(), quantity);
+            String choice;
+
+            while (true) {
+                choice = consoleIO.getStringInput("Do you want to remove more items from cart? (y/n): ");
+                if (choice.equalsIgnoreCase("y")) {
+                    break;
+                } else if (choice.equalsIgnoreCase("n")) {
+                    removeMoreItems = false;
+                    break;
+                } else {
+                    consoleIO.displayMessage("Invalid entry.");
+                }
+            }
+        }
     }
 }
