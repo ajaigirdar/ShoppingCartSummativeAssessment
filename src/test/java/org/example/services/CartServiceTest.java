@@ -15,7 +15,7 @@ class CartServiceTest {
 
     @BeforeEach
     void setUp() {
-        testCart = new Cart();
+        cart = new Cart();
         cartService = new CartService(cart);
     }
 
